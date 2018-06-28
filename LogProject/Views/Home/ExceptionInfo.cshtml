@@ -1,0 +1,56 @@
+@model Log
+@{
+    ViewBag.Title = "详细信息";
+}
+<style>
+    table tr th{width:100px;}
+</style>
+<h2>ExceptionInfo</h2>
+<div><input type="button" style="float:right" value="返回上一层" onclick="window.history.go(-1);" class="btn btn-default btn-primary"></div>
+<table class="table table-hover">
+    <caption>LogInfos</caption>
+    <thead>
+        <tr>
+            <th>字段</th>
+            <th>详细信息</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>创建时间</th>
+            <td>@Model.Date</td>
+        </tr>
+        <tr>
+            <th>记录等级</th>
+            @switch (Model.Level)
+            {
+                case "INFO":
+                    <td class="alert alert-info">正常</td>
+                    break;
+                case "ERROR":
+                    <td class="alert alert-danger">错误</td>
+                    break;
+                case "WARN":
+                    <td class="alert alert-warning">警告</td>
+                    break;
+                default:
+                    break;
+            }
+           
+        </tr>
+        <tr>
+            <th>Logger方法</th>
+            <td>@Model.Logger</td>
+        </tr>
+        <tr>
+            <th>错误信息</th>
+            <td>@Model.Message</td>
+        </tr>
+        <tr>
+            <th>异常信息</th>
+            <td>@Model.Exception</td>
+        </tr>
+       
+    </tbody>
+</table>
+

@@ -18,8 +18,14 @@ namespace LogProject.Controllers
         public IActionResult Index()
         {
             
-            var logs=_context.Logs.OrderByDescending(e=>e.Date).Take(20).ToArray();
+            var logs=_context.Logs.OrderByDescending(e=>e.Id).Take(20).ToArray();
             return View(logs);
+        }
+        public IActionResult ExceptionInfo(int id)
+        {
+           
+            var log=_context.Logs.SingleOrDefault(e=>e.Id==id);
+            return View(log);
         }
 
         public IActionResult About()
@@ -36,9 +42,6 @@ namespace LogProject.Controllers
             return View();
         }
 
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+      
     }
 }

@@ -1,31 +1,33 @@
 ﻿@model Log[]
 @{
-    ViewData["Title"] = "日志";
+    ViewData["Title"] = "日志列表";
 }
-<h2 class="text-c">My Web LogInfos</h2>
-<table class="table table-border table-bordered table-hover">
+
+<h2>There are the Log4NetDB LogInfos</h2>
+<table class="table table-hover">
+    <caption><b>LogInfos</b>
+    </caption>
+    
     <thead>
         <tr>
-            <th>@Model[0].Date</th>
-            <th>表头</th>
-            <th>表头</th>
+            <th >创建时间</th>
+            <th >记录等级</th>
+            <th >Logger方法</th>
+            <th >错误信息</th>
+            <th>异常信息</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th>类别</th>
-            <td>表格内容</td>
-            <td>表格内容</td>
-        </tr>
-        <tr>
-            <th>类别</th>
-            <td>表格内容</td>
-            <td>表格内容</td>
-        </tr>
-        <tr>
-            <th>类别</th>
-            <td>表格内容</td>
-            <td>表格内容</td>
-        </tr>
+       
+        @foreach (var it in Model)
+        {
+            <tr>
+                <td>@it.Date</td>
+                <td>@it.Level</td>
+                <td>@it.Logger</td>
+                <td>@it.Message</td>
+                <td><a href="~/Home/ExceptionInfo/@it.Id">查看详细异常</a></td>
+            </tr>
+        }
     </tbody>
 </table>

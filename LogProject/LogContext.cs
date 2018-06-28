@@ -9,10 +9,15 @@ namespace LogProject
 {
     public class LogContext:DbContext
     {
-        public LogContext(DbContextOptions<LogContext> opt):base(opt)
-        {
-            Database.EnsureCreated();
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     optionsBuilder.UseSqlServer("server=39.104.87.16;database=log4netdb;uid=sa;pwd=Lic123456");
+
+        // }
+       public LogContext(DbContextOptions<LogContext> opt):base(opt)
+       {
+           Database.EnsureCreated();
+       }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // modelBuilder.Entity<Log>().ToTable("LogInfos").HasKey(e => e.Date);

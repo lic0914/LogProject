@@ -12,7 +12,7 @@ namespace LogProject.Models
         public void Configure(EntityTypeBuilder<Log> builder)
         {
             builder.ToTable("LogInfos");
-            builder.HasKey(e => e.Date);
+            builder.HasKey(e => e.Id);
         }
     }
 }
