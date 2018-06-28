@@ -11,7 +11,7 @@ namespace LogProject
     {
         // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         // {
-        //     optionsBuilder.UseSqlServer("server=39.104.87.16;database=log4netdb;uid=sa;pwd=Lic123456");
+        //     optionsBuilder.UseSqlServer("server=.;database=log4netdb;integrated security=true");
 
         // }
        public LogContext(DbContextOptions<LogContext> opt):base(opt)
